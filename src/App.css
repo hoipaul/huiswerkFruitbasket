@@ -6,3 +6,7 @@ fieldset {
 #resetButton {
     width: 250px;
 }
+
+body{
+    margin-left: 5px;
+}
