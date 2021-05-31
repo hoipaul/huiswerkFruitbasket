@@ -9,54 +9,49 @@ function Form() {
     return (
         <form className="form" id="form" onSubmit={handleSubmit(onSubmit)}>
             Voornaam <input type="text" {...register("Voornaam", {required: true, maxLength: 80})} />
-            <br/>
-            <br/>
             Achternaam <input type="text" {...register("Achternaam", {required: true, maxLength: 100})} />
-            <br/>
-            <br/>
             Leeftijd <input type="text"  {...register("Leeftijd", {
             required: true,
             min: 18,
             pattern: /^\S+@\S+$/i
         })} />
-            <br/>
-            <br/>
             Postcode <input type="text"  {...register("Postcode", {required: true, maxLength: 12})} />
-            <br/>
-            <br/>
             Huisnummer <input type="text" {...register("Huisnummer zonder toevoeging", {
             required: true,
-            min: -1
+            min: 1
         })} />
             <br/>
             <br/>
-            Bezorgfrequentie
+            <div id="radio">
+                Bezorgfrequentie
+                <br/>
+                <input {...register("Bezorgfrequentie", {required: true})} type="radio" value="Iedere week"/>
+                Iedere week
+                <br/>
+                <input {...register("Bezorgfrequentie", {required: true})} type="radio" value="Om de week"/>
+                Om de week
+                <br/>
+                <input {...register("Bezorgfrequentie", {required: true})} type="radio" value="Iedere maand"/>
+                Iedere maand
+                <br/>
+                <input {...register("Bezorgfrequentie", {required: true})} type="radio" value="Anders"/>
+                Anders
+            </div>
             <br/>
-            <input {...register("Bezorgfrequentie", {required: true})} type="radio" value="Iedere week"/>
-            Iedere week
-            <br/>
-            <input {...register("Bezorgfrequentie", {required: true})} type="radio" value="Om de week"/>
-            Om de week
-            <br/>
-            <input {...register("Bezorgfrequentie", {required: true})} type="radio" value="Iedere maand"/>
-            Iedere maand
-            <br/>
-            <input {...register("Bezorgfrequentie", {required: true})} type="radio" value="Anders"/>
-            Anders
-            <br/>
-            <br/>
-            <input type="submit"/>
-            <br/>
-            <br/>
-            {/*dit deel is nog niet dmv react-hook geschreven*/}
-            <textarea name="remarks" id="remarks" cols="30" rows="10"></textarea>
+            Opmerking
             <br/>
             <br/>
-            <label htmlFor="terms">
-                <input type="checkbox"/>Ik ga akkoord met de voorwaarden</label>
+            <textarea rows="10" cols="50" {...register("Opmerkingen", {})} />
             <br/>
             <br/>
-            <button className="submit">Verzenden</button>
+            <div id="conditions">
+                <input type="checkbox"
+                       {...register("Ik ga akkoord met de voorwaarden", {})}/>
+                Ik ga akkoord met de algemene voorwaarden
+                <br/>
+                <br/>
+                <button className="submit" input type="submit">Verzenden</button>
+            </div>
         </form>
     );
 }

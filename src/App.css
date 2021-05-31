@@ -7,6 +7,12 @@ fieldset {
     width: 250px;
 }
 
-body{
+body {
     margin-left: 5px;
+}
+
+.form {
+    width: 250px;
+    display: flex;
+    flex-flow: column;
 }

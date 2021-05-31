@@ -6,8 +6,6 @@ import Form from "./Form";
 function reset(number) {
 
     return (number = 0);
-// ik krijg de resetbutton functie niet aan de praat
-    document.getElementById("resetButton").innerHTML = number;
 }
 
 function App() {
@@ -24,7 +22,7 @@ function App() {
             <button id="resetButton" onClick={reset}>Reset</button>
             <div>
                 <br/>
-            <Form/>
+                <Form/>
             </div>
         </>
 
